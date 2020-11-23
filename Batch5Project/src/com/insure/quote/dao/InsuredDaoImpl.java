@@ -141,14 +141,14 @@ public class InsuredDaoImpl implements InsuredDao {
 
 
 	@Override
-	public List<Policy> getInsuredPolicies(int accNo) throws IQGSException {
+	public List<Policy> getInsuredPolicies(int accno) throws IQGSException {
 		// TODO Auto-generated method stub
 		List<Policy> policies = new ArrayList<Policy>();
 		Policy policy;
 		try {
 			conn = DataBaseConnection.getConnection();
 			pst = conn.prepareStatement(InsuredDbQueries.GET_INSURED_POLICY);	
-			pst.setInt(1, accNo);
+			pst.setInt(1, accno);
 			rs = pst.executeQuery();
 			while(rs.next()) {
 				policy = new Policy();

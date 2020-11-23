@@ -18,7 +18,7 @@ public interface InsuredService {
 
 	public int getAccountNumber(String username) throws IQGSException;
 
-	public List<Policy> getInsuredPolicies(int accNo) throws IQGSException;
+	public List<Policy> getInsuredPolicies(int accno) throws IQGSException;
 
 	public Accounts getAccountDetails(int accNo) throws IQGSException;
 

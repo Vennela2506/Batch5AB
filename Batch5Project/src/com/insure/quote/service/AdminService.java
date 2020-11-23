@@ -44,6 +44,7 @@ public interface AdminService {
 		public Double getPolicyPremium(int polNum) throws IQGSException;
 
 		public List<String> getSelectedAnswers(int polNum) throws IQGSException;
+		//public String getLineOfBusinessIdByAccount(String Accountnumber) throws IQGSException;
 
 	}
 

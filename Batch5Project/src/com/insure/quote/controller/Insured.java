@@ -44,7 +44,7 @@ InsuredService service = new InsuredServiceImpl();
 			isCreated = service.accountCreation(account);
 			if (isCreated == 1) {
 				out.println("Account Created Successfully!!");
-				dispatcher = request.getRequestDispatcher("InsuredPage.jsp");//insurerhome.html");
+				dispatcher = request.getRequestDispatcher("InsuredPage.jsp");
 				dispatcher.forward(request, response);
 			}
 			

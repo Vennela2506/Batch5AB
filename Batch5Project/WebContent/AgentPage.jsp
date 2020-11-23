@@ -8,11 +8,11 @@
 </head>
 <body>
 <div style="text-align: center">
-<form action="UserLogin" method="post">
         <h1>Welcome Agent!</h1><br><br>
-        <a href="/Account Creation">Account Creation</a><br><br>
-        <a href="/PolicyCreation">PolicyCreation</a><br><br>
-       <a href="/View Policy">View Policy</a><br><br>
+        <form action="UserLogin" method="post">
+        <a href="AgentAccountCreation.jsp">Account Creation</a><br><br>
+        <a href="AgentPolicyCreation.jsp">PolicyCreation</a><br><br>
+       <a href="AgentVP.jsp">View Policy</a><br><br>
         <a href="Logout">Logout</a>
         </form>
     </div>

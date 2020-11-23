@@ -7,9 +7,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="AdminPolicyCreation" method="post">
-		Enter the account number <input type="text" name="accNumber" >
-		<input type="submit" value="Create Policy">
+<body>
+<form action="AgentViewPolicy" method="post">
+		Enter Your UserName<input type="text" name="uname" required >
+		<input type="submit" name="submit" value="View">
 	</form>
+</body>
 </body>
 </html>

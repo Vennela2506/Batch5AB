@@ -18,11 +18,11 @@ public interface AdminDao {
 	public int addUser(UserRole userRole) throws IQGSException;
 	
 	public String getLineOfBusinessIdByName(String lineOfBusinessName) throws IQGSException;
+	//public String getLineOfBusinessIdByAccount(String Accountnumber) throws IQGSException;
 
 	public boolean isUserExists(String userName) throws IQGSException;
 	
 	public int accountCreation(Accounts account) throws IQGSException;
-
 	
 	public String getBusSegId(int accNumber) throws IQGSException;
 	
@@ -45,6 +45,7 @@ public interface AdminDao {
 	public List<String> getSelectedAnswers(int polNum) throws IQGSException;
 
 	public Integer getPolicyPremiumAmount(Integer sumOfWeightages) throws IQGSException;
+	//public List<String> getQuestionId(List<Integer> weightages) throws IQGSException;
 
 
 	}

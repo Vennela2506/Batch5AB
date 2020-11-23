@@ -15,11 +15,14 @@ import javax.servlet.http.HttpSession;
 
 import com.insure.quote.dto.Policy;
 import com.insure.quote.exception.IQGSException;
-import com.insure.quote.service.InsuredService;
-import com.insure.quote.service.InsuredServiceImpl;
+import com.insure.quote.service.AgentService;
+import com.insure.quote.service.AgentServiceImpl;
 
-@WebServlet("/InsuredViewPolicy")
-public class InsuredViewPolicy extends HttpServlet {
+/**
+ * Servlet implementation class AgentViewPolicy
+ */
+@WebServlet("/AgentViewPolicy")
+public class AgentViewPolicy extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 			String user =request.getParameter("uname");
@@ -27,15 +30,15 @@ public class InsuredViewPolicy extends HttpServlet {
 			context.setAttribute("uname",user);
 			PrintWriter out = response.getWriter();
 			RequestDispatcher dispatcher = null;
-			InsuredService service = new InsuredServiceImpl();
+			AgentService service = new AgentServiceImpl();
 			try {
 			int accNo = service.getAccountNumber(user);
-			List<Policy> policies = service.getInsuredPolicies(accNo);
+			List<Policy> policies = service.getPolicies(accNo);
 			System.out.println("policies size : "+policies.size());
 			if(policies.size() > 0) {
 				request.setAttribute("policies", policies);
 			
-				dispatcher = request.getRequestDispatcher("InsuredViewPolicy.jsp");
+				dispatcher = request.getRequestDispatcher("AgentViewPolicy.jsp");
 				dispatcher.include(request, response);
 		
 			}
@@ -54,6 +57,4 @@ public class InsuredViewPolicy extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
 	}
-
-	}
-
+}

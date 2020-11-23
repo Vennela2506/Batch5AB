@@ -73,13 +73,12 @@ public class AdminDaoImpl implements AdminDao {
 					roleCode = resultSet.getString(1);
 				}
 			} catch (SQLException e) {
-				throw new IQGSException("problem while creating PS object");
-			} finally {
+				System.out.println(e.getMessage());		
+				} finally {
 				try {
 					connection.close();
 				} catch (SQLException e) {
-					throw new IQGSException("problem while closing");
-				}
+					System.out.println(e.getMessage());				}
 
 			}
 			return roleCode;
@@ -133,12 +132,12 @@ public class AdminDaoImpl implements AdminDao {
 					//System.out.println(name + " " + pwd);
 				}
 			} catch (SQLException e) {
-				throw new IQGSException("problem while creating PS object");
-			} finally {
+				System.out.println(e.getMessage());			
+				} finally {
 				try {
 					connection.close();
 				} catch (SQLException e) {
-					throw new IQGSException("problem while closing");
+					System.out.println(e.getMessage());
 				}
 
 			}
@@ -160,12 +159,12 @@ public class AdminDaoImpl implements AdminDao {
 					found = true;
 				}
 			} catch (SQLException e) {
-				throw new IQGSException("problem while creating PS object");
+				System.out.println(e.getMessage());
 			} finally {
 				try {
 					connection.close();
 				} catch (SQLException e) {
-					throw new IQGSException("problem while closing");
+					System.out.println(e.getMessage());
 				}
 
 			}
@@ -219,16 +218,15 @@ public class AdminDaoImpl implements AdminDao {
 				resultSet = prepareStatement.executeQuery();
 				if(resultSet.next()) {
 					busSegId = resultSet.getString(1);
-					System.out.println("Getting business segment id :" + busSegId);
+					//System.out.println("Getting business segment id :" + busSegId);
 				}
 			} catch (SQLException e) {
-				throw new IQGSException("problem while creating PS object"+e.getMessage());
-			} finally {
+				System.out.println(e.getMessage());			
+				} finally {
 				try {
 					connection.close();
 				} catch (SQLException e) {
-					throw new IQGSException("problem while closing");
-				}
+					System.out.println(e.getMessage());				}
 
 			}
 	        return busSegId;
@@ -237,15 +235,13 @@ public class AdminDaoImpl implements AdminDao {
 		@Override
 		public List<PolicyQuestions> getPolicyQuestions(String busSegId) throws IQGSException {
 			List<PolicyQuestions> policyQuestions = new ArrayList<PolicyQuestions>();
-			PolicyQuestions polQues = null;
+			connection = DataBaseConnection.getConnection();
 			try {
-				connection = DataBaseConnection.getConnection();
-				System.out.println(busSegId);
 				prepareStatement = connection.prepareStatement(AdminQueries.GET_POLICY_QUESTIONS);
 				prepareStatement.setString(1, busSegId);
 				resultSet = prepareStatement.executeQuery();
 				while(resultSet.next()) {
-					polQues = new PolicyQuestions();
+					PolicyQuestions polQues = new PolicyQuestions();
 					polQues.setPolQuesId(resultSet.getString(1));
 					polQues.setPolQuesSeq(resultSet.getInt(2));
 					polQues.setBusSegId(resultSet.getString(3));
@@ -256,17 +252,15 @@ public class AdminDaoImpl implements AdminDao {
 					polQues.setPolQuesAns2Weightage(resultSet.getInt(8));
 					polQues.setPolQuesAns3(resultSet.getString(9));
 					polQues.setPolQuesAns3Weightage(resultSet.getInt(10));
-					//System.out.println("Im in limelight : "+polQues);
 					policyQuestions.add(polQues);
 				}
 			} catch (SQLException e) {
-				throw new IQGSException("problem while creating PS object"+e.getMessage());
+				System.out.println(e.getMessage());
 			} finally {
 				try {
 					connection.close();
 				} catch (SQLException e) {
-					throw new IQGSException("problem while closing");
-				}
+					System.out.println(e.getMessage());				}
 
 			}
 			System.out.println(policyQuestions);
@@ -279,7 +273,7 @@ public class AdminDaoImpl implements AdminDao {
 			boolean found = false;
 			try {
 				connection = DataBaseConnection.getConnection();
-				System.out.println(sumOfWeightages);
+				//System.out.println(sumOfWeightages);
 				prepareStatement = connection.prepareStatement(AdminQueries.GET_POLICY_PREMIUM_AMOUNT);
 				prepareStatement.setDouble(1, sumOfWeightages);
 				resultSet = prepareStatement.executeQuery();
@@ -298,13 +292,13 @@ public class AdminDaoImpl implements AdminDao {
 				System.out.println("Premium Amount :" + preAmt);
 				
 			} catch (SQLException e) {
-				throw new IQGSException("problem while creating PS object"+e.getMessage());
+				System.out.println(e.getMessage());
+				
 			} finally {
 				try {
 					connection.close();
 				} catch (SQLException e) {
-					throw new IQGSException("problem while closing");
-				}
+					System.out.println(e.getMessage());				}
 
 			}
 
@@ -499,24 +493,19 @@ public class AdminDaoImpl implements AdminDao {
 					System.out.println("Getting business segment id :" + busSegName);
 				}
 			} catch (SQLException e) {
-				throw new IQGSException("problem while creating PS object"+e.getMessage());
+				System.out.println(e.getMessage());
 			} finally {
 				try {
 					connection.close();
 				} catch (SQLException e) {
-					throw new IQGSException("problem while closing");
+					System.out.println(e.getMessage());
 				}
 
 			}
-			//System.out.println(busSegName);
 			return busSegName;
 		}
-		/*public static void main(String[] args) throws QGSException {
-			System.out.println(getBusSegName("R02"));
-		}*/
 		@Override
 		public Double getPolicyPremium(Integer polNum) throws IQGSException {
-			// TODO Auto-generated method stub
 			Double polPremium = 0.0;
 			try {
 				connection = DataBaseConnection.getConnection();
@@ -529,16 +518,15 @@ public class AdminDaoImpl implements AdminDao {
 					System.out.println("Getting policy premium: " + polPremium);
 				}
 			} catch (SQLException e) {
-				throw new IQGSException("problem while creating PS object"+e.getMessage());
+				System.out.println(e.getMessage());
 			} finally {
 				try {
 					connection.close();
 				} catch (SQLException e) {
-					throw new IQGSException("problem while closing");
+					System.out.println(e.getMessage());
 				}
 
 			}
-			System.out.println("policy premium in dao is : " + polPremium);
 			return polPremium;
 		}
 
@@ -554,27 +542,23 @@ public class AdminDaoImpl implements AdminDao {
 				prepareStatement = connection.prepareStatement(AdminQueries.GET_SELECTED_ANSWERS);
 				prepareStatement.setInt(1, polNum);
 				resultSet = prepareStatement.executeQuery();
-				//System.out.println("policy number : "+polNum);
 				while(resultSet.next()) {
 					selectedAns.add(resultSet.getString(1));
 				}
 			} catch (SQLException e) {
-				throw new IQGSException("problem while creating PS object "+e.getMessage());
-			} finally {
+				System.out.println(e.getMessage());			
+				} finally {
 				try {
 					connection.close();
 				} catch (SQLException e) {
-					throw new IQGSException("problem while closing");
-				}
+					System.out.println(e.getMessage());				}
 
 			}
-			System.out.println("Inside dao answers are:"+selectedAns);
 			return selectedAns;
 		}
-		/*public static void main(String[] args) throws QGSException {
-			System.out.println(getSelectedAnswers(10));
-		}*/
+}
+
 
 		
-	}
+
 

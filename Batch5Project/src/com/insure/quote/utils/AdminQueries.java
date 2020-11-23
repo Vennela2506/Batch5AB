@@ -17,12 +17,11 @@ public class AdminQueries {
 		
 		public static final String GET_BUS_SEG_ID = "select lineofBusiness from accounts where accountnumber = ?";
 		
-		public static final String GET_POLICY_QUESTIONS = "select * from policyquestions where bus_seg_id = ?";
+		public static final String GET_POLICY_QUESTIONS = "select * from policy_questions where bus_seg_id = ?";
 		
-		//String GET_POLICY_PREMIUM_AMOUNT = "select pre_amt from premiums where ? in (pre_ans_weightage_min,pre_ans_weightage_max)";
-		public static final String GET_POLICY_PREMIUM_AMOUNT = "select pre_amt from premiums where ? between pre_ans_weightage_min and pre_ans_weightage_max";
+		public static final String GET_POLICY_PREMIUM_AMOUNT = "select policypremium from policy";
 		
-		public static final String CREATE_POLICY = "insert into policy values(policy_number.nextval, ?, ?)";
+		public static final String CREATE_POLICY = "insert into policy values(policynumber.nextval, ?, ?)";
 		
 		public static final String GET_POLICY_NUMBER = "select max(policynumber) from policy";
 		
@@ -34,11 +33,12 @@ public class AdminQueries {
 		
 		public static final String GET_ACCOUNT_DETAILS = "select * from accounts where accountnumber = ?";
 		
-		public static final String GET_BUS_SEG_NAME = "select bus_seg_name from businesssegment where bus_seg_id = ?";
+		public static final String GET_BUS_SEG_NAME = "select bus_seg_name from business_segment where bus_seg_id = ?";
 		
 		public static final String GET_POLICY_PREMIUM = "select policypremium from policy where policynumber = ?";
 		
 		public static final String GET_SELECTED_ANSWERS = "select answer from policydetails where policynumber = ?";
+
 		
 	}
 

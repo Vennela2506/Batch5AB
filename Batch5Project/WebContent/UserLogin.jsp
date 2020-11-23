@@ -5,7 +5,8 @@
 <head>
 </head>
 <div style="text-align: center">
-<h2>User Login</h2>
+<h1>ONLINE INSURANCE QUOTE GENERATION</h1>
+<h3>User Login</h3>
 
 <form action="UserLogin" method="post">
     <label for="uname"><b>Login ID</b></label>

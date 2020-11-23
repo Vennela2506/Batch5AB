@@ -16,7 +16,7 @@ public boolean accountValidation(String username) throws IQGSException;
 	
 	public int accountCreation(Accounts account) throws IQGSException;
 	
-	public List<Policy> getInsuredPolicies(int accNo) throws IQGSException;
+	public List<Policy> getInsuredPolicies(int accno) throws IQGSException;
 	
 	public int getAccountNumber(String username) throws IQGSException;
 	

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,24 +8,24 @@
 <title>Insert title here</title>
 </head>
 <body>
-<div class = "container">
-	
-	
-	<table class = "table" cellpadding="20px" border="0px">
-		<th>Policy Number
-		<th>Policy Premium
-		<th>Account Number
-		<th>
-		<c:forEach items="${policies}" var="policy">
-			<tr class = "tr">
-				<td><c:out value="${policy.policyNumber}" /><br>
-				<td><c:out value="${policy.policyPremium}" /><br>
-				<td><c:out value="${policy.accNumber }" /><br>
-				<td><a href="ReportGenerationServlet?accNumber=${policy.accNumber}&polNumber=${policy.policyNumber}">View Policy</a>
+<h1> ViewPolicy</h1>
+	<table border="2">
+	<tr>
+		<th>Policy Number</th>
+		<th>Policy Premium</th>
+		<th>Account Number</th>
+		</tr>
+		<c:forEach  var="policy" items="${policies}">
+			<tr>
+				<td>${policy.policyNumber}</td>
+				<td>${policy.policyPremium}</td>
+				<td>${policy.accNumber }</td>
+				<td><a href="AdminReportGeneration?accNumber=${policy.accNumber}&polNumber=${policy.policyNumber}">ViewPolicy</a>
 			</tr>
 		</c:forEach>
 	</table>
 	</div>
+	</form>
 
 
 </body>

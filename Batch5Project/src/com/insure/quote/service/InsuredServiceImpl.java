@@ -47,9 +47,9 @@ public class InsuredServiceImpl implements InsuredService{
 
 
 		@Override
-		public List<Policy> getInsuredPolicies(int accNo) throws IQGSException {
+		public List<Policy> getInsuredPolicies(int accno) throws IQGSException {
 			// TODO Auto-generated method stub
-			return insuredDao.getInsuredPolicies(accNo);
+			return insuredDao.getInsuredPolicies(accno);
 		}
 
 
