@@ -33,6 +33,7 @@
 	    	<c:out value="${answer}" /><br>
 	</c:forEach>
 	<%=premium %>
-
+	<br><br>
+	<a href="AdminPage.jsp">back</a>
 </body>
 </html>

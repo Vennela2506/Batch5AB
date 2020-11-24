@@ -24,37 +24,27 @@ public class ProfileCreation extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		int isInserted = 0;
 		PrintWriter out = response.getWriter();
 		RequestDispatcher dispatcher = null;
-		
 		AdminService service = new AdminServiceImpl();
-		
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		String rolecode = request.getParameter("rolecode");
-		
-		//System.out.println(username + " " + password + " " + rolecode);
-		
 		UserRole userRole = new UserRole(username, password, rolecode);
 		try {
-
 			isInserted = service.addUser(userRole);
 			if (isInserted > 0) {
 				out.println("User Role created successfully!!!!");
-				/*dispatcher = request.getRequestDispatcher("adminhome.html");
+				dispatcher = request.getRequestDispatcher("AdminPage.jsp");
 				dispatcher.include(request, response);
-		*/	} else {
+		} else {
 				out.println("Username already exists!! Enter a different Username");
-		/*		dispatcher = request.getRequestDispatcher("profilecreation.html");
+				dispatcher = request.getRequestDispatcher("profilecreation.jsp");
 				dispatcher.include(request, response);
-		*/	}
+			}
 		} catch (IQGSException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
-
-
 }

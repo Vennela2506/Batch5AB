@@ -28,7 +28,6 @@ public class AgentPremiumGeneration extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter out = response.getWriter();
 		AgentService service = new AgentServiceImpl();
-
 		ServletContext context = request.getServletContext();
 		int polPremium = 0;
 		int sumOfWeightages = 0;
@@ -41,8 +40,6 @@ public class AgentPremiumGeneration extends HttpServlet {
 		RequestDispatcher dispatcher = null;
 		List<Integer> weightages = new ArrayList<Integer>();
 		String str="question";
-		//String[] qandA=new String[3];
-		//List<Integer> weight=new ArrayList();
 		for(int i=1;i<=numOfQuestions;i++) {
 			if(request.getParameter(str+i)!=null) {
 				String[] qandA=new String[3];
@@ -53,24 +50,19 @@ public class AgentPremiumGeneration extends HttpServlet {
 			 sumOfWeightages+=Integer.parseInt(qandA[2]);
 			}
 		}
-		out.print(sumOfWeightages);
+		System.out.println(sumOfWeightages);
 		Policy policy = new Policy();
 		try {
-			//context.setAttribute("accNumber", accNumber);
 			accNumber = Integer.parseInt(""+context.getAttribute("accNumber"));
-			//polPremium = service.getPolicyPremiumAmount(sumOfWeightages);
-			//System.out.println(accNumber);
 			policy.setAccNumber(accNumber);
 			policy.setPolicyPremium(sumOfWeightages);
 			isInserted = service.createPolicy(policy);
 			if(isInserted > 0) {
-				//out.println("Policy created successfully!!!!");
+				System.out.println("Policy created successfully!!!!");
 				polNumber = service.getPolicyNumber();
 				service.addPolicyDetails(polNumber, questionIds, selectedAnswers);
-				System.out.println("In Premium generation servlet "+polNumber);
 				dispatcher = request.getRequestDispatcher("AgentPage.jsp");
-				dispatcher.include(request, response);
-				
+				dispatcher.include(request, response);				
 			}		
 		} catch (IQGSException e) {
 			e.printStackTrace();

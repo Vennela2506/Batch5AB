@@ -21,25 +21,21 @@ import com.insure.quote.service.AdminServiceImpl;
 @WebServlet("/AdminViewPolicies")
 public class AdminViewPolicies extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		AdminService service = new AdminServiceImpl();
 		RequestDispatcher dispatcher = null;
 		try {
 			List<Policy> policy = service.getPolicies();
-			System.out.println(policy);
 			request.setAttribute("policies", policy);
 			dispatcher = request.getRequestDispatcher("ReportGeneration.jsp");
 			dispatcher.include(request, response);
 		} catch (IQGSException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(req, resp);
 	}
 }

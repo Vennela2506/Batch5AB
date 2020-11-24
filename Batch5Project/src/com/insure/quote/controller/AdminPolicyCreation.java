@@ -21,15 +21,12 @@ import com.insure.quote.service.AdminServiceImpl;
 @WebServlet("/AdminPolicyCreation")
 public class AdminPolicyCreation extends HttpServlet { 
 	int noOfQuestions;
-
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		int accNumber = Integer.parseInt(request.getParameter("accNumber"));
 		ServletContext context = request.getServletContext();
 		context.setAttribute("accNumber", accNumber);
 		PrintWriter out = response.getWriter();
-	    
 		AdminService service = new AdminServiceImpl();
 		RequestDispatcher dispatcher = null;
 		try {
@@ -37,19 +34,13 @@ public class AdminPolicyCreation extends HttpServlet {
 			List<PolicyQuestions> policies=service.getPolicyQuestions(busSegId);
 			noOfQuestions=policies.size();
 			request.setAttribute("questions",policies);
-			dispatcher = request.getRequestDispatcher("NewFile.jsp");
+			dispatcher = request.getRequestDispatcher("AdminPremiumGeneration.jsp");
 			dispatcher.forward(request, response);
 		} catch (IQGSException e) {
 			System.out.println(e.getMessage());
-		}
-		
+		}		
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request,response);
-		
-		
-		
-		
-		
 	}
 }

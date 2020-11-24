@@ -20,13 +20,12 @@ import com.insure.quote.service.UserServiceImpl;
 @WebServlet("/UserLogin")
 public class UserLogin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
-
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		String userId=request.getParameter("uname");
 		String pass=request.getParameter("psw");
 		UserService userdao=new UserServiceImpl();
@@ -51,22 +50,17 @@ public class UserLogin extends HttpServlet {
 					   session.setAttribute("user", user);
 		                dest = "InsuredPage.jsp";
 				}
-
 	            } 
 			else {
 	                String message = "Invalid UserId/password";
 	                request.setAttribute("message", message);
 	            }
-	             
 	            RequestDispatcher dispatcher = request.getRequestDispatcher(dest);
 	            dispatcher.forward(request, response);
-	             
-	        } catch (SQLException ex) {
-	            throw new ServletException(ex);
+	            } catch (SQLException ex) {
+	            throw new ServletException(ex.getMessage());
 	        }
 			}
-
-
-	}
+}
 
 

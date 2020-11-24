@@ -8,7 +8,7 @@
 <div class = "accountbox">
 	<h1>Account Creation</h1>
 	<br>
-	<form action = "AdminAccountCreation" method = "post">
+	<form action = "Insured" method = "post">
 		<p>User Name</p>
 		<input type = "text" name = "userName" placeholder = "Enter Insured name" required>
 		<p>Insured Name</p>

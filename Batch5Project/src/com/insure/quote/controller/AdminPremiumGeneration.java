@@ -28,7 +28,6 @@ public class AdminPremiumGeneration extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter out = response.getWriter();
 		AdminService service = new AdminServiceImpl();
-
 		ServletContext context = request.getServletContext();
 		int sumOfWeightages = 0;
 		int isInserted = 0;
@@ -50,7 +49,7 @@ public class AdminPremiumGeneration extends HttpServlet {
 			 sumOfWeightages+=Integer.parseInt(qandA[2]);
 			}
 		}
-		out.print(sumOfWeightages);
+		System.out.println(sumOfWeightages);
 		Policy policy = new Policy();
 		try {
 			accNumber = Integer.parseInt(""+context.getAttribute("accNumber"));
@@ -58,13 +57,11 @@ public class AdminPremiumGeneration extends HttpServlet {
 			policy.setPolicyPremium(sumOfWeightages);
 			isInserted = service.createPolicy(policy);
 			if(isInserted > 0) {
-				out.println("Policy created successfully!!!!");
+				System.out.println("Policy created successfully!!!!");
 				polNumber = service.getPolicyNumber();
 				service.addPolicyDetails(polNumber, questionIds, selectedAnswers);
-				System.out.println("In Premium generation servlet "+polNumber);
 				dispatcher = request.getRequestDispatcher("AdminPage.jsp");
-				dispatcher.include(request, response);
-				
+				dispatcher.include(request, response);				
 			}		
 		} catch (IQGSException e) {
 			e.printStackTrace();

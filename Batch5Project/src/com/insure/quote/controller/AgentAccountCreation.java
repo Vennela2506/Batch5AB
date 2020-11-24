@@ -22,7 +22,7 @@ public class AgentAccountCreation extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int isCreated = 0;
         boolean isAccountExists = false;
-	PrintWriter out = response.getWriter();
+        PrintWriter out = response.getWriter();
 		RequestDispatcher dispatcher = null;
 		AgentService service = new AgentServiceImpl();
 		boolean isUserExists = false;
@@ -31,23 +31,18 @@ public class AgentAccountCreation extends HttpServlet {
 		String insuredStreet = request.getParameter("insuredStreet");
 		String insuredCity = request.getParameter("insuredCity");
 		String insuredState = request.getParameter("insuredState");
-		int insuredZip = Integer.parseInt(request.getParameter("insuredZip"));
-		
-		String busSegName = request.getParameter("busSegName");
-		
-		try {
-						
+		int insuredZip = Integer.parseInt(request.getParameter("insuredZip"));		
+		String busSegName = request.getParameter("busSegName");		
+		try {						
 			String bussinessSegmentId = service.getLineOfBusinessIdByName(busSegName);
-			Accounts account = new Accounts(insuredName, insuredStreet, insuredCity, insuredState, insuredZip, bussinessSegmentId, userName);
-			
+			Accounts account = new Accounts(insuredName, insuredStreet, insuredCity, insuredState, insuredZip, bussinessSegmentId, userName);			
 			isUserExists = service.isUserExists(userName);
-			if (isUserExists) {
-                
+			if (isUserExists) {               
 				isAccountExists = service.accountValidation(userName);
 				if(isAccountExists) {
 					out.println("Account already exists");
-					/*dispatcher = request.getRequestDispatcher("AgentPage.jsp");
-					dispatcher.include(request, response);*/
+					dispatcher = request.getRequestDispatcher("AgentPage.jsp");
+					dispatcher.include(request, response);
 				} else {
 				    isCreated = service.accountCreation(account);
 				    if (isCreated >0) {
@@ -58,13 +53,11 @@ public class AgentAccountCreation extends HttpServlet {
 				}
 			} else {
 				out.println("User does not exists! First register as user");
-				/*dispatcher = request.getRequestDispatcher("AgentPage.jsp");
-				dispatcher.include(request, response);*/
+				dispatcher = request.getRequestDispatcher("AgentPage.jsp");
+				dispatcher.include(request, response);
 			}
 		} catch (IQGSException e) {
 			System.out.println(e.getMessage());
 		}
-
 	}
-
 }

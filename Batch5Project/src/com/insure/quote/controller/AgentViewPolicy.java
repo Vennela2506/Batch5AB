@@ -24,6 +24,7 @@ import com.insure.quote.service.AgentServiceImpl;
 @WebServlet("/AgentViewPolicy")
 public class AgentViewPolicy extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 			String user =request.getParameter("uname");
 			ServletContext context = request.getServletContext();
@@ -36,21 +37,16 @@ public class AgentViewPolicy extends HttpServlet {
 			List<Policy> policies = service.getPolicies(accNo);
 			System.out.println("policies size : "+policies.size());
 			if(policies.size() > 0) {
-				request.setAttribute("policies", policies);
-			
+				request.setAttribute("policies", policies);			
 				dispatcher = request.getRequestDispatcher("AgentViewPolicy.jsp");
-				dispatcher.include(request, response);
-		
-			}
-			
+				dispatcher.include(request, response);		
+			}			
 			else {
 				out.println("Policies does not exists.. ");
-				/*dispatcher = request.getRequestDispatcher("insurerhome.html");
-				dispatcher.include(request, response);*/
-							
+				dispatcher = request.getRequestDispatcher("InsuredPage.jsp");
+				dispatcher.include(request, response);							
 			}
 		}catch (IQGSException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
