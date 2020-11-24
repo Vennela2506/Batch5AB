@@ -8,8 +8,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-	
-	<h1>Policy View</h1>
+	<h1><center>ONLINE INSURANCE QUOTE GENERATION</center></h1>
+	<h2>Policy View</h2>
 	<table class = "table" cellpadding="20px" border="0px">
 	<tr>
 		<th>Policy Number</th>
@@ -25,6 +25,7 @@
 			</tr>
 		</c:forEach>
 	</table>
+		        <br><center><a href="AgentPage.jsp">Back</a></center>
 	
 
 </body>

@@ -15,6 +15,11 @@ public class UserRole {
 		this.password = password;
 		this.roleCode = roleCode;
 	}
+	public UserRole(String userName, String password) {
+		super();
+		this.userName = userName;
+		this.password = password;
+	}
 
 	public String getUserName() {
 		return userName;

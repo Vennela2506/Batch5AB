@@ -11,6 +11,9 @@
 <title>Insert title here</title>
 </head>
 <body>
+<h1><center>ONLINE INSURANCE QUOTE GENERATION</center></h1>
+<h2>Report Generation</h2>
+<div class="Container">
 <form action="AgentReportGeneration" method="get">
 <% Accounts accounts = (Accounts)request.getAttribute("account");
 	   String busSegName = (String)request.getAttribute("busSegName");
@@ -18,22 +21,21 @@
 	   List<String> selectedAnswers = (List)request.getAttribute("selectedAns");
 	   Double premium = (Double)request.getAttribute("premium");
 	   PrintWriter writer = response.getWriter();
-	   writer.println(selectedAnswers);
 	%>
-	<%=accounts.getInsuredName() %><br>
-	<%=accounts.getInsuredStreet() %><br>
-	<%=accounts.getInsuredCity() %><br>
-	<%=accounts.getInsuredState() %><br>
-	<%=accounts.getInsuredZip() %><br>
-	<%=busSegName %><br>
+	InsuredName : <%=accounts.getInsuredName() %><br>
+	InsuredStreet<%=accounts.getInsuredStreet() %><br>
+	InsuredCity<%=accounts.getInsuredCity() %><br>
+	InsuredState<%=accounts.getInsuredState() %><br>
+	InsuredZip<%=accounts.getInsuredZip() %><br>
+	BusinessSegment<%=busSegName %><br><br>
+	Questions : <br>
 	<c:forEach items="${questions}" var="question">
 	    	<c:out value="${question.polQuesDesc}" />${question.polQuesDesc}<br>
-	</c:forEach>
-	
-	<c:forEach items="${selectedAnswers}" var="answer">
-	    	<c:out value="${answer}" />${answer}<br>
-	</c:forEach>
-	<%=premium %>
-	
-</body>
+	</c:forEach><br>
+	Selected Answers : <br>
+	<%=selectedAnswers %><br><br>
+	ProposedPremium : 	<%=premium %>
+	       <br> <br><a href="AgentPage.jsp">Back</a>
+	       </div>
+	</body>
 </html>

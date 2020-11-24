@@ -8,7 +8,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1> ViewPolicy</h1>
+<div style="text-align: center">
+<h1>ONLINE INSURANCE QUOTE GENERATION</h1>
+</div>
+<h2> ViewPolicy</h2>
 	<table border="2">
 	<tr>
 		<th>Policy Number</th>
@@ -24,9 +27,6 @@
 			</tr>
 		</c:forEach>
 	</table>
-	</div>
-	</form>
-
-
+	        <br><a href="AdminPage.jsp">Back</a>
 </body>
 </html>

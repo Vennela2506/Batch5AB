@@ -7,13 +7,14 @@
 <title>Insert title here</title>
 </head>
 <body>
-<div style="text-align: center">
-        <h1>Welcome Agent!</h1><br><br>
+<h1><center>ONLINE INSURANCE QUOTE GENERATION</h1>
         <form action="UserLogin" method="post">
+        <h2>Welcome Agent!</h2>
+        <p style="direction: ltr;">
         <a href="AgentAccountCreation.jsp">Account Creation</a><br><br>
         <a href="AgentPolicyCreation.jsp">PolicyCreation</a><br><br>
-       <a href="AgentVP.jsp">View Policy</a><br><br>
-        <a href="Logout">Logout</a>
+        <a href="AgentVP.jsp">View Policy</a><br><br>
+        <a href="Logout">Logout</a></p>
         </form>
     </div>
 </body>

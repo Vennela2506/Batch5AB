@@ -8,11 +8,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-	
-	<div class = "container">
-	
-	
-	<table class = "table" cellpadding="20px" border="0px">
+<div style="text-align: center">
+<h1>ONLINE INSURANCE QUOTE GENERATION</h1>
+</div>
+		<div class = "container">
+		<table class = "table" cellpadding="20px" border="0px">
 		<th>Policy Number
 		<th>Policy Premium
 		<th>Account Number

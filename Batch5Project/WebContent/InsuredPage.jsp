@@ -7,12 +7,13 @@
 <title>Insert title here</title>
 </head>
 <body>
-<div style="text-align: center">
+<h1><center>ONLINE INSURANCE QUOTE GENERATION</center></h1>
 <form action="UserLogin" method="post">
-        <h1>Welcome Insured Person!</h1><br><br>
-        <a href="InsuredAccountCreation.jsp">Account Creation</a><br><br>
-       <a href="InsuredView.jsp">ViewPolicy</a><br><br>
-        <a href="Logout">Logout</a>
+        <h2>Welcome Insured Person!</h2>
+            <p style="direction: ltr;">
+            <a href="InsuredAccountCreation.jsp">Account Creation</a><br><br>
+            <a href="InsuredView.jsp">ViewPolicy</a><br><br>
+            <a href="Logout">Logout</a>
         </form>
     </div>
 </body>

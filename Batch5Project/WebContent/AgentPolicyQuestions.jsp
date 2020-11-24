@@ -8,6 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<h1>ONLINE INSURANCE QUOTE GENERATION</h1>
 <%!int question=0; %>
 <form action="AgentPremiumGeneration" method="post">
 <table>
@@ -24,5 +25,7 @@
 <input type="hidden" name="numofquestions" value="<%=question%>">
 <input type="submit" value="createPolicy">
 </form>
+	        <br><center><a href="AgentPage.jsp">Back</a></center>
+
 </body>
 </html>

@@ -14,6 +14,7 @@
 <title>PolicyCreation</title>
 </head>
 <body>
+<center><h1>ONLINE INSURANCE QUOTE GENERATION</h1></center>
 <div class = "loginbox">
 <% int count = 0; %>
 <form action = "PremiumGenerationServlet" method = post>

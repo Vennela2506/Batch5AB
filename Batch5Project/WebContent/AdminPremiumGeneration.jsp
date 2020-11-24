@@ -8,6 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<h1>ONLINE INSURANCE QUOTE GENERATION</h1>
 <%!int question=0; %>
 <form action="AdminPremiumGeneration" method="post">
 <table>

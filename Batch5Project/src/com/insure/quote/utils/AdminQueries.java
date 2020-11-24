@@ -1,5 +1,6 @@
 package com.insure.quote.utils;
-public class AdminQueries {			
+public class AdminQueries {	
+	public static final String VALIDATE_USER_QUERY = "select * from userrole where username = ? and password = ?";
 		public static final String ADD_USER = "insert into userRole values(?,?,?)";	
 		public static final String ACCOUNT_CREATION = "insert into accounts values(accountnumber.nextval,?,?,?,?,?,?,?)";
 		public static final String GET_LOB_NAME = "select bus_seg_id from Business_Segment where bus_seg_name = ?";		
