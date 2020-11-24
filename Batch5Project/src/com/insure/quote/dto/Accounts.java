@@ -130,6 +130,7 @@ package com.insure.quote.dto;
 					+ insuredCity + ", insuredState=" + insuredState + ", insuredZip=" + insuredZip + ", lineOfBusiness="
 					+ lineOfBusiness + ", accountNumber=" + accountNumber + ", userName=" + userName+"]";
 		}
+		//Sample
 		
 	}
 
