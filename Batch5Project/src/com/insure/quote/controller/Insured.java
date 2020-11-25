@@ -37,8 +37,9 @@ public class Insured extends HttpServlet {
 				isAccountExists=service.accountValidation(userName);
 				if(isAccountExists==false) {
 					isCreated = service.accountCreation(account);
+					int accnumber=service.getAccountNumber(userName);
 				if (isCreated == 1) {
-				System.out.println("Account Created Successfully!!");
+				System.out.println("Account Created Successfully with AccountNumber : "+accnumber);
 				dispatcher = request.getRequestDispatcher("InsuredPage.jsp");
 				dispatcher.forward(request, response);
 			}

@@ -6,10 +6,15 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
+<style>
+body {
+  background-color: #66CDAA;
+}
+</style>
 </head>
 <body>
 <h1><center>ONLINE INSURANCE QUOTE GENERATION</center></h1>
-<h2> ViewPolicy</h2>
+<h2>View Policy</h2>
 	<table border="2">
 	<tr>
 		<th>Policy Number</th>

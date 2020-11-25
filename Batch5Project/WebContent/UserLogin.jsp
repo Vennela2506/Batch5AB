@@ -3,7 +3,13 @@
 <!DOCTYPE html>
 <html>
 <head>
+<style>
+body {
+  background-color: #66CDAA;
+}
+</style>
 </head>
+<body>
 <div style="text-align: center">
 <h1>ONLINE INSURANCE QUOTE GENERATION</h1>
 <h2>User Login</h2>

@@ -74,4 +74,8 @@ return adminDao.getSelectedAnswers(polNum);
 public boolean accountValidation(String userName) throws IQGSException {
 	return adminDao.accountValidation(userName);
 }
+@Override
+public int getAccountNumber(String userName) throws IQGSException {
+	return adminDao.getAccountNumber(userName);
+}
 }

@@ -438,6 +438,31 @@ public class AdminDaoImpl implements AdminDao {
 			}
 			return selectedAns;
 		}
+		@Override
+		public int getAccountNumber(String userName) throws IQGSException {
+			int accNo = 0;
+			try {
+				connection = DataBaseConnection.getConnection();
+				prepareStatement = connection.prepareStatement(AgentDBQueries.GET_ACCOUNT_NUMBER);
+				prepareStatement.setString(1, userName);			
+				resultSet = prepareStatement.executeQuery();
+				if(resultSet.next()) {				
+					accNo = resultSet.getInt(1);				
+				}
+				else {
+					System.out.println("No Account so please create one");
+				}
+			} catch (SQLException e) {
+				System.out.println(e.getMessage());		
+				} finally {
+				try {
+					connection.close();
+				} catch (SQLException e) {
+					System.out.println(e.getMessage());			
+					}
+			}
+	        return accNo;
+		}	
 }
 
 

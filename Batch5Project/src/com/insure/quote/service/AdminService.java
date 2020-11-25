@@ -23,6 +23,7 @@ public interface AdminService {
 		public String getBusSegName(String lineOfBusiness) throws IQGSException;
 		public Double getPolicyPremium(int polNum) throws IQGSException;
 		public List<String> getSelectedAnswers(int polNum) throws IQGSException;
+		public int getAccountNumber(String userName) throws IQGSException;
 	}
 
 	

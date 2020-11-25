@@ -19,6 +19,7 @@ public class AdminAccountCreation extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {     		
 		int isCreated = 0;
 		PrintWriter out = response.getWriter();
+		PrintWriter print=response.getWriter();
 		RequestDispatcher dispatcher = null;
 		AdminService service = new AdminServiceImpl();
 		boolean isUserExists = false;
@@ -36,18 +37,20 @@ public class AdminAccountCreation extends HttpServlet {
 			isUserExists = service.isUserExists(userName);
 			if(isUserExists) {
 				isAccountExists=service.accountValidation(userName);
-				if(isAccountExists==false) {
-					isCreated = service.accountCreation(account);
-				if (isCreated == 1) {
-				System.out.println("Account Created Successfully!!");
-				dispatcher = request.getRequestDispatcher("AdminPage.jsp");
-				dispatcher.forward(request, response);
+				if(isAccountExists) {
+					out.println("Account Already Exists");
+					dispatcher = request.getRequestDispatcher("AdminPage.jsp");
+						dispatcher.include(request, response);
 			}
-				}
 			else {
-				out.println("Account Already Exists");
-			dispatcher = request.getRequestDispatcher("AdminPage.jsp");
-				dispatcher.include(request, response);
+				isCreated = service.accountCreation(account);
+				if (isCreated >0) {
+					out.println("Account Created Successfully with AccountNumber:");
+					int accnumber=service.getAccountNumber(userName);
+					print.println(+accnumber);
+					dispatcher = request.getRequestDispatcher("AdminPage.jsp");
+					dispatcher.include(request, response);
+		}
 			}			
 			}
 			else {

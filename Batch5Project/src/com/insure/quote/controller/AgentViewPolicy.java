@@ -43,7 +43,7 @@ public class AgentViewPolicy extends HttpServlet {
 			}			
 			else {
 				out.println("Policies does not exists.. ");
-				dispatcher = request.getRequestDispatcher("InsuredPage.jsp");
+				dispatcher = request.getRequestDispatcher("AgentPage.jsp");
 				dispatcher.include(request, response);							
 			}
 		}catch (IQGSException e) {

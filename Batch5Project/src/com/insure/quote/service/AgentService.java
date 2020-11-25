@@ -24,5 +24,4 @@ public interface AgentService {
 	public List<String> getSelectedAnswers(int polNum) throws IQGSException;
 	public List<Policy> getPolicies(int accNumber) throws IQGSException;
 	public int getAccountNumber(String userName) throws IQGSException;
-
 }

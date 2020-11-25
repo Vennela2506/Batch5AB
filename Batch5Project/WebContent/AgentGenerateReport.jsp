@@ -9,31 +9,27 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
+<style>
+body {
+  background-color: #66CDAA;
+}
+</style>
 </head>
 <body>
 <h1><center>ONLINE INSURANCE QUOTE GENERATION</center></h1>
-<h2>Report Generation</h2>
+<h2>Insurance Report</h2>
 <div class="Container">
 <form action="AgentReportGeneration" method="get">
 <% Accounts accounts = (Accounts)request.getAttribute("account");
 	   String busSegName = (String)request.getAttribute("busSegName");
-	   List<String> questions = (List)request.getAttribute("questions");
-	   List<String> selectedAnswers = (List)request.getAttribute("selectedAns");
 	   Double premium = (Double)request.getAttribute("premium");
-	   PrintWriter writer = response.getWriter();
 	%>
 	InsuredName : <%=accounts.getInsuredName() %><br>
-	InsuredStreet<%=accounts.getInsuredStreet() %><br>
-	InsuredCity<%=accounts.getInsuredCity() %><br>
-	InsuredState<%=accounts.getInsuredState() %><br>
-	InsuredZip<%=accounts.getInsuredZip() %><br>
-	BusinessSegment<%=busSegName %><br><br>
-	Questions : <br>
-	<c:forEach items="${questions}" var="question">
-	    	<c:out value="${question.polQuesDesc}" />${question.polQuesDesc}<br>
-	</c:forEach><br>
-	Selected Answers : <br>
-	<%=selectedAnswers %><br><br>
+	InsuredStreet : <%=accounts.getInsuredStreet() %><br>
+	InsuredCity : <%=accounts.getInsuredCity() %><br>
+	InsuredState : <%=accounts.getInsuredState() %><br>
+	InsuredZip : <%=accounts.getInsuredZip() %><br>
+	BusinessSegment : <%=busSegName %><br><br>
 	ProposedPremium : 	<%=premium %>
 	       <br> <br><a href="AgentPage.jsp">Back</a>
 	       </div>

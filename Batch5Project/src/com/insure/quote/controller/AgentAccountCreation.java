@@ -45,8 +45,9 @@ public class AgentAccountCreation extends HttpServlet {
 					dispatcher.include(request, response);
 				} else {
 				    isCreated = service.accountCreation(account);
+				    int accnumber=service.getAccountNumber(userName);
 				    if (isCreated >0) {
-					out.println("Account Created Successfully!!");
+					out.println("Account Created Successfully with AccountNumber: "+accnumber);
 					dispatcher = request.getRequestDispatcher("AgentPage.jsp");
 					dispatcher.include(request, response);
 				   }

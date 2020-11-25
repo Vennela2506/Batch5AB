@@ -5,6 +5,11 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+<style>
+body {
+  background-color: #66CDAA;
+}
+</style>
 </head>
 <body>
 <h1><center>ONLINE INSURANCE QUOTE GENERATION</center></h1>

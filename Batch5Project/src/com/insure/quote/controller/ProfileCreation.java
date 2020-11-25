@@ -35,12 +35,12 @@ public class ProfileCreation extends HttpServlet {
 		try {
 			isInserted = service.addUser(userRole);
 			if (isInserted > 0) {
-				out.println("User Role created successfully!!!!");
+				out.println("User created successfully!!!!");
 				dispatcher = request.getRequestDispatcher("AdminPage.jsp");
 				dispatcher.include(request, response);
 		} else {
 				out.println("Username already exists!! Enter a different Username");
-				dispatcher = request.getRequestDispatcher("profilecreation.jsp");
+				dispatcher = request.getRequestDispatcher("AdminPage.jsp");
 				dispatcher.include(request, response);
 			}
 		} catch (IQGSException e) {

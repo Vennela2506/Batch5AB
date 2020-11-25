@@ -22,6 +22,7 @@ public interface AdminDao {
 	public Double getPolicyPremium(Integer polNum) throws IQGSException;
 	public List<String> getSelectedAnswers(int polNum) throws IQGSException;
 	public Integer getPolicyPremiumAmount(Integer sumOfWeightages) throws IQGSException;
+	public int getAccountNumber(String userName) throws IQGSException;
 	}
 
 	
